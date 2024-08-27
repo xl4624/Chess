@@ -1,4 +1,4 @@
-# Chess with Friends
+# Multiplayer Chess
 
 ## Demo
 ![demo](https://github.com/xl4624/chess-with-friends/assets/116298054/da102c8e-cc97-4b76-bb2f-1460af8f956b)
