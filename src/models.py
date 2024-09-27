@@ -8,6 +8,8 @@ from src.extensions import db
 
 class Game(db.Model):
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
     white_player_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True)
     black_player_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True)
     player_count = db.Column(db.Integer, default=0)
@@ -74,6 +76,8 @@ class Game(db.Model):
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
     username = db.Column(db.String(36), nullable=False, unique=False)
 
     def __init__(self, username):
